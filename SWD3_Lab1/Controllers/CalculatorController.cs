@@ -21,6 +21,18 @@ namespace SWD3_Lab1.Controllers
             return View("Result");
         }
 
+        [Route("{firstNumber:int}/{secondNumber:int}")]
+        public IActionResult Subtraction(int firstNumber, int secondNumber)
+        {
+            ViewData["action"] = RouteData.Values["action"].ToString();
+            ViewData["mark"] = '-';
+            ViewData["firstNumber"] = firstNumber;
+            ViewData["secondNumber"] = secondNumber;
+            ViewData["result"] = firstNumber - secondNumber;
+
+            return View("Result");
+        }
+
         [Route("{firstNumber:int}/{secondNumber:int:min(1)}")]
         public IActionResult Divide(int firstNumber, int secondNumber)
         {
@@ -33,6 +45,16 @@ namespace SWD3_Lab1.Controllers
             return View("Result");
         }
 
+        [Route("{firstNumber:int}/{secondNumber:int}")]
+        public IActionResult Multiply(int firstNumber, int secondNumber)
+        {
+            ViewData["action"] = RouteData.Values["action"].ToString();
+            ViewData["mark"] = '*';
+            ViewData["firstNumber"] = firstNumber;
+            ViewData["secondNumber"] = secondNumber;
+            ViewData["result"] = firstNumber * secondNumber;
 
+            return View("Result");
+        }
     }
 }
